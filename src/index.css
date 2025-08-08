@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-[#0a0a0a] text-white font-mono;
+}
+
+.glow-text {
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+.panel {
+  @apply bg-[#111] border border-[#1f2937] rounded-lg shadow-inner p-4;
+}
+
