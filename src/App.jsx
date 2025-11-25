@@ -34,7 +34,7 @@ const App = () => {
   const [visualizationState, setVisualizationState] = useState(null);
   const [algorithmData, setAlgorithmData] = useState(null);
   const [error, setError] = useState(null);
-  
+   
   // Ref to store the algorithm controller for pause/resume
   const algorithmController = useRef(null);
 
@@ -93,17 +93,12 @@ const App = () => {
             case 'bellman-ford':
               algoModule = await import('./algorithms/graph/BellmanFord');
               break;
-            case 'prim':
-              algoModule = await import('./algorithms/graph/Prim');
-              break;
+            // Prim and Kruskal removed here
             case 'topological':
               algoModule = await import('./algorithms/graph/TopologicalSort');
               break;
             case 'cycle':
               algoModule = await import('./algorithms/graph/CycleDetection');
-              break;
-            case 'kruskal':
-              algoModule = await import('./algorithms/graph/Krushkal');
               break;
             default:
               algoModule = await import('./algorithms/graph/BFS');
@@ -155,8 +150,8 @@ const App = () => {
               algoModule = await import('./algorithms/backtracking/NQueens');
               break;
             // case 'sudoku':
-            //   algoModule = await import('./algorithms/backtracking/SudokuSolver');
-            //   break;
+            //    algoModule = await import('./algorithms/backtracking/SudokuSolver');
+            //    break;
             case 'ratmaze':
               algoModule = await import('./algorithms/backtracking/RatInMaze');
               break;
@@ -233,7 +228,8 @@ const App = () => {
       
       if (selectedCategory === 'graph') {
         // Some algorithms don't need a source node
-        const startNode = ['kruskal', 'prim', 'topological', 'cycle'].includes(selectedAlgorithm) ? 0 : sourceNode;
+        // Removed 'kruskal' and 'prim' from this list
+        const startNode = ['topological', 'cycle'].includes(selectedAlgorithm) ? 0 : sourceNode;
         
         // Dijkstra and Bellman-Ford need both source and destination
         if (selectedAlgorithm === 'dijkstra' || selectedAlgorithm === 'bellman-ford') {
