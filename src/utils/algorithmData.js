@@ -28,8 +28,6 @@ export const algorithmCategories = {
       { id: 'dfs', name: 'Depth-First Search' },
       { id: 'dijkstra', name: "Dijkstra's Algorithm" },
       { id: 'bellman-ford', name: 'Bellman-Ford' },
-      { id: 'kruskal', name: "Kruskal's MST" },
-      { id: 'prim', name: "Prim's MST" },
       { id: 'topological', name: 'Topological Sort' },
       { id: 'cycle', name: 'Cycle Detection' }
     ]
